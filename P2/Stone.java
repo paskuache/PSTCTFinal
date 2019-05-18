@@ -1,6 +1,8 @@
 class Stone{
-    public boolean stone(int[] piles){
+    public static boolean stone(int[] piles){
         int n = piles.length;
+        if(n%2 != 0)
+            return false;
 
         int[][] dp = new int[n+2][n+2];
         for(int x = 1; x <= n; x++){
