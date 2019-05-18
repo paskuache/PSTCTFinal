@@ -13,3 +13,7 @@ Note:
     4. sum(piles) is odd
 
 
+The only way Lee wins is if the lenght of the piles is uneven and if the sum of all the rocks is odd. Otherwise Alex will always win. The 2D array is defined in terms of itself depending on who's turn it is. The reason why it is stored in a 2D array is because it makes going back to the remaining piles easier. The next diogonal set of values shows the amount of points that Alex has in the lead shoud Lee pick the value. 
+E.g. 
+    Should Alex pick the leftmost pile of tocks and Lee picks the leftmost pile after that, Alex will be left with 2 points in the lead.
+The reason why it's not done in a 1D array is because I would have to make 2 1D arrays, one for Alex and one for Lee to see where they stand. Instead I just use one 2D array to avoid that.
