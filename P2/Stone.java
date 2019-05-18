@@ -6,12 +6,15 @@ class Stone{
         for(int x = 1; x <= n; x++){
             for(int y = 0; y + x <= n; y++){
                 int j = y + x - 1;
-                int parity = (j + i + n)%2;
-
-                if(parity == 1)
-                    dp[y+1][j+1] = Math.max(pies[y] + dp[y+2][j + 1], piles[j] + dp[y + 1][j]);
-                else
+                int parity = (j + y + n)%2;
+                System.out.println("Parity: "+ parity);
+                if(parity == 1){
+                    dp[y+1][j+1] = Math.max(piles[y] + dp[y+2][j + 1], piles[j] + dp[y + 1][j]);
+                    System.out.println("Parity == 1:" + dp[y+1][j+1]);
+                }else{
                     dp[y+1][j+1] = Math.min(-piles[y] + dp[y+2][j+1], -piles[j] + dp[y+1][j]);
+                    System.out.println("Parity != 1:" + dp[y+1][j+1]);
+                }
             }//end y for loop
         }//end x for loop
         return dp[1][n] > 0;
